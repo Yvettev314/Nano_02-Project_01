@@ -1,0 +1,44 @@
+### Date created
+2022/01/05
+
+### Project Title
+Anglo American Data Scientist: Write a Data Science Blog Post
+Link: https://medium.com/@yvettev314/predict-the-value-drivers-of-homes-on-airbnb-b284161aabd9
+
+### Description
+Project 1 - We are to write a blog on any platform of our choice
+(chosen platform is Medium), using the CRISP-DM methodology to
+evaluate data from Airbnb on activity in Boston, Ma, USA.
+
+### Files used
+Nano02_Project01.py - This is the python code used to evaluate the data
+README.md - This is a description of the project
+listings.csv - This is the source data used for the project
+
+### Credits
+I've used a lot of sites such as Stack Overflow to aid in writing
+the code.
+
+### Motivation
+The motivation for this project was to use the CRISP-DM method
+to answer the following questions about the Airbnb Data:
+1 - Can we determine the value drivers for the price of a home on
+Airbnb, as well as predict the value of a listing?
+
+2 - What general observations can we make from the data that would
+aid clients/users of Airbnb in decision making, ex: Which location
+is the most/least expensive to rent from for a one bedroom home, and
+what property type (house/loft/guesthouse etc.) is most/least popular?
+
+3 - How does the price of a listing change based on property type,
+the number of bedrooms offered/bathrooms offered?
+
+### Summary of the results
+The r2-score was 58%, mean squared error was 4283, and the root
+mean squared error was 65. The model needs refinement, which is
+something that can be investigated in a next phase — Because of
+this, the model can at best be used to provide an indication of
+the value of a listing, and the user shouldn’t use the valuation
+predicted by the model in isolation, but in consideration with
+additional market research. The user should use their own
+discretion when determining the value of the property they are listing.
