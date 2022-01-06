@@ -7,17 +7,12 @@ Link to Blog Post: https://medium.com/@yvettev314/predict-the-value-drivers-of-h
 Link to Github Repository: https://github.com/Yvettev314/Nano_02-Project_01.git
 
 ### Description
-Project 1 - Write a blog on any platform of our choice (chosen platform is Medium), using the CRISP-DM methodology to
-evaluate data from Airbnb on activity in Boston, Ma, USA.
+Project 1 - Write a blog on any platform of our choice (chosen platform is Medium), using the CRISP-DM methodology to evaluate data from Airbnb on activity in Boston, Ma, USA.
 
 ### Showing the project follows the CRISP-DM Process:
 STEP 1 - Business Understanding
 Brief description
-Whether you are new to the game and want to list your first home on Airbnb, or you want to re-evaluate the value of your current listing,
-determining how much money your listing is worth shouldn’t be a guessing game. Knowing how to evaluate your market and developing a pricing
-strategy can maximize your rental income. In this post, I will describe how the CRISP-DM methodology was followed to predict the value drivers for
-homes on Airbnb - The data used is from Kaggle’s survey data for Airbnb activity in Boston, MA, USA in 2016. There are a lot of insights you can obtain
-from this data, however, the particular questions motivating this post are:
+Whether you are new to the game and want to list your first home on Airbnb, or you want to re-evaluate the value of your current listing, determining how much money your listing is worth shouldn’t be a guessing game. Knowing how to evaluate your market and developing a pricing strategy can maximize your rental income. In this post, I will describe how the CRISP-DM methodology was followed to predict the value drivers for homes on Airbnb - The data used is from Kaggle’s survey data for Airbnb activity in Boston, MA, USA in 2016. There are a lot of insights you can obtain from this data, however, the particular questions motivating this post are:
 
 Question 1 - Can we determine the value drivers for the price of a home on Airbnb, as well as predict the value of a listing?
 Question 2 - What general observations can we make from the data that would aid clients/users of Airbnb in decision making, ex: Which
