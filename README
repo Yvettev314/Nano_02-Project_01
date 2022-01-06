@@ -3,12 +3,82 @@
 
 ### Project Title
 Anglo American Data Scientist: Write a Data Science Blog Post
-Link: https://medium.com/@yvettev314/predict-the-value-drivers-of-homes-on-airbnb-b284161aabd9
+Link to Blog Post: https://medium.com/@yvettev314/predict-the-value-drivers-of-homes-on-airbnb-b284161aabd9
+Link to Github Repository: https://github.com/Yvettev314/Nano_02-Project_01.git
 
 ### Description
-Project 1 - We are to write a blog on any platform of our choice
-(chosen platform is Medium), using the CRISP-DM methodology to
+Project 1 - Write a blog on any platform of our choice (chosen platform is Medium), using the CRISP-DM methodology to
 evaluate data from Airbnb on activity in Boston, Ma, USA.
+
+### Showing the project follows the CRISP-DM Process:
+STEP 1 - Business Understanding
+Brief description
+Whether you are new to the game and want to list your first home on Airbnb, or you want to re-evaluate the value of your current listing,
+determining how much money your listing is worth shouldn’t be a guessing game. Knowing how to evaluate your market and developing a pricing
+strategy can maximize your rental income. In this post, I will describe how the CRISP-DM methodology was followed to predict the value drivers for
+homes on Airbnb - The data used is from Kaggle’s survey data for Airbnb activity in Boston, MA, USA in 2016. There are a lot of insights you can obtain
+from this data, however, the particular questions motivating this post are:
+
+Question 1 - Can we determine the value drivers for the price of a home on Airbnb, as well as predict the value of a listing?
+Question 2 - What general observations can we make from the data that would aid clients/users of Airbnb in decision making, ex: Which
+location is the most/least expensive to rent from for a one bedroom home, and what property type (house/loft/guesthouse etc.) is most/least
+popular?
+Question 3 - How does the price of a listing change based on property type, the number of bedrooms offered/bathrooms offered?
+
+STEP 2 - Data Understanding
+Access and Explore
+The data contains 3353 entries from 25 different neighborhoods in Boston, MA - Each entry being a unique listing. The location (market, neighborhood),
+price (daily rate, cleaning fee, security deposit), availability (nights available per month / year) and quality (reviews, amenities) was provided in the
+survey data. Not all listings are complete, in other words, there are some listings that miss some of the information above, ex. missing the cleaning fee
+or listing description, etc.
+
+STEP 3 - Prepare Data
+Wrangle and Clean
+I will briefly talk through some of the data preparation steps. Some listings were incomplete - i.e., they had missing values for
+certain properties such as the cleaning fee, security deposit, guests allowed etc. The missing data for these listings were replaced with 0 as one of our
+assumptions. For properties such as the number of beds or bedrooms provided, some listings had listed zero, which doesn’t make sense. In this situation the
+listing was removed from the dataset and excluded from the analysis. Completely empty columns, and columns containing no unique values were also removed from
+the dataset. Z-score was used to detect outliers, and these values were also removed from the dataset. The dataset was split into numerical and categorical
+datasets. When developing the model to predict the price of a listing, both categorical and numerical data was included. A model was developed to predict the
+price of a listing based on several properties that make a listing unique — The location (specific neighborhood), how many guests are accommodated, number of
+bathrooms, number of bedrooms, number of beds, the availability and the overall review score for the listing. The data was split into training, test, and
+validation sets, and the model was fit using the data prepared. The model was evaluated by looking at the following metrics: r2-score, mean squared error,
+root mean squared error, and the feature importance. Having a better understanding of the data, what questions we want to answer with it, and how we went
+about the process, we can take a look at the results next.
+
+STEP 4 - Modeling
+Question 1 --- A model was developed to predict the price of a listing based on several properties that make a listing unique —The location, how many guests
+are accommodated, number of bathrooms, number of bedrooms, number of beds, availability and quality. The model was evaluated by looking at the following
+metrics: r2-score, mean squared error, root mean squared error, and the feature importance. The r2-score was 58%, mean squared error was 4283, and the root
+mean squared error was 65. To obtain some indication of which properties are value drivers, we can look at the feature importance. The properties that seemed
+to play the biggest role was the number of guests the home could accommodate, followed by the number of bathrooms offered. The variables with the lowest
+importance was the availability of the listing and the review score — These variables seemed to be insignificant. When the availability of the listing and
+the review score was removed from the model, the r2 value was similar to that of the first model. These variables were excluded from the second revision of
+the model. The model was fit again. We looked at the feature importance, and again the number of guests the home could accommodate was the most important
+feature, and the number of beds provided seemed to be insignificant when predicting the price of the home. ‘The number of beds’ were removed and the model
+was refitted. The performance of the model was similar as well as the r2 value. Running the feature importance again, we see that all remaining variables
+play a significant role — Remaining variables: Number of guests accommodated, number of bathrooms offered, number of bedrooms offered, and the location of
+the home.
+
+STEP 5 - Evaluation
+Question 2 --- This is only for a one bedroom home with varying amenities provided and property types. The difference between the highest priced listing
+(~$211 per night in Back Bay) and the lowest priced listing (~$60 per night in Hyde Park) is ~$151 for a one bedroom. Looking at the amenities for an
+average one bedroom home in these two areas didn’t really indicate that this is a value driver as they both provided similar amenities. We can also
+look at the average price for a home based on the property type -- This is for a one bedroom home with varying amenities provided and it isn’t exclusive
+to any neighborhood. The difference between the highest priced property type (~$250 per night for a Boat) and the lowest priced property type (~$60 per
+night for a dorm room) is ~$190 for a one bedroom. Amenities are similar between the different listings.
+
+Question 3 --- The price of one listing compared to another will always be different depending on location, how much guests the home accommodates, amenities
+provided, and how many beds/bathrooms are offered. But what was interesting from the data was seeing how much extra it will cost you for every additional
+bedroom added from a one bedroom (this also changed for beds/bathrooms etc.).Not based on any particular neighborhood, and looking at all the listings in
+Boston combined, the average price per listing for a one bedroom home is ~$140. For an additional bedroom (2-bedroom), that will cost you an extra ~$120
+(Total ~$260). We can keep going, a 3rd bedroom will be ~$58 extra (Total ~$318), a 4th bedroom is an additional ~$73 (Total ~$391), and a 5th bedroom will
+cost you an additional ~$40, upgrading from a 4 to a 5 bedroom home (Total ~$431). We assume that this price increase per additional bedroom is the same no
+matter the location of the rental. However, this is not true because price per square foot can vary based on several factors making one home different from
+the next — ex: location, the age of the property, condition of the property, nearby amenities and upgrades to the property all contribute to the price of the
+lot per square foot. For the sake of this analysis, we will assume it is the same. We can do the same analysis for the number of bathrooms offered - However,
+this was analyzed for a 3 bedroom home. The average price for a listing for a 3-bedroom home with one bathroom is ~$240. For and additional bathroom
+(2-bathrooms), that will cost you an extra ~$91 (Total ~$331). For a 3-bedroom and 3-bathroom home, you will pay ~$492. That’s an extra ~$161.
 
 ### Files used
 Nano02_Project01.py - This is the python code used to evaluate the data
@@ -19,26 +89,7 @@ listings.csv - This is the source data used for the project
 I've used a lot of sites such as Stack Overflow to aid in writing
 the code.
 
-### Motivation
-The motivation for this project was to use the CRISP-DM method
-to answer the following questions about the Airbnb Data:
-1 - Can we determine the value drivers for the price of a home on
-Airbnb, as well as predict the value of a listing?
-
-2 - What general observations can we make from the data that would
-aid clients/users of Airbnb in decision making, ex: Which location
-is the most/least expensive to rent from for a one bedroom home, and
-what property type (house/loft/guesthouse etc.) is most/least popular?
-
-3 - How does the price of a listing change based on property type,
-the number of bedrooms offered/bathrooms offered?
-
-### Summary of the results
-The r2-score was 58%, mean squared error was 4283, and the root
-mean squared error was 65. The model needs refinement, which is
-something that can be investigated in a next phase — Because of
-this, the model can at best be used to provide an indication of
-the value of a listing, and the user shouldn’t use the valuation
-predicted by the model in isolation, but in consideration with
-additional market research. The user should use their own
-discretion when determining the value of the property they are listing.
+### Conclusion
+The model needs refinement, which is something that can be investigated in a next phase — Because of this, the model can at best be used to provide an
+indication of the value of a listing, and the user shouldn’t use the valuation predicted by the model in isolation, but in consideration with additional
+market research. The user should use their own discretion when determining the value of the property they are listing.
